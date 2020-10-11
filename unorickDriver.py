@@ -34,8 +34,6 @@ else:
 
 '''Description: Most updated library for the un0rick platform. 
 Compatible for a RPi4/python3 setup 
-`220200109a` expe
-@todo: improve doc: http://sametmax.com/les-docstrings/
 '''
 
 __author__ = "kelu124"
