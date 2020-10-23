@@ -1,9 +1,10 @@
 import spidev
-import Rpi.GPIO
+import RPi.GPIO
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as pyplot
-import jsonimport time
+import json
+import time
 from unorickDriver import *
 
 ### INITIALIZATION ###
