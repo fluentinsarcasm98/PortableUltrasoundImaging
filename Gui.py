@@ -3,8 +3,8 @@ from tkinter import ttk
 
 
 form = tk.Tk()
-form.title("Ultrasound Data")
-form.geometry("500x400")
+form.title("Ultrasound Settings")
+form.geometry("800x500")
 bold = ("bold")
 
 tab_parent = ttk.Notebook(form)
@@ -27,13 +27,17 @@ final_tgc = ttk.Label(tab1, text="Final TGC Value:")
 
 acq = ttk.Label(tab1, text="Acquisition Parameters", font=bold)
 samplef = ttk.Label(tab1, text='ADC Sampling Frequency')
-freqs = ttk.Combobox(tab1, values=["16kHz", "18kHz", "20kHz"])
+freqs = ttk.Combobox(tab1, values=["16", "18", "20"])
+f = ttk.Label(tab1, text="MHz")
 
 pulse_peak = ttk.Label(tab1, text='Pulse Peak-to-Peak Voltage')
-voltages = ttk.Combobox(tab1, values=["60V", "70V", "80V"])
+voltages = ttk.Combobox(tab1, values=["60", "70", "80"])
+v = ttk.Label(tab1, text="V")
 
 timing = ttk.Label(tab1, text="Timing Pulse Train", font=bold)
 t1 = ttk.Label(tab1, text="T1")
+t2 = ttk.Label(tab1, text="T2")
+t3 = ttk.Label(tab1, text="T3")
 
 #freqs = ttk.Menu(tab1)
 #freqs.add_command(label="16kHz")
@@ -41,11 +45,22 @@ t1 = ttk.Label(tab1, text="T1")
 #freqs.add_command(label="20kHz")
 #tab1.config(freqs=freqs)
 
+routine = ttk.Label(tab1, text="Acquisition Routine", font=bold)
+rnumber = ttk.Label(tab1, text="Number of Rotations")
+msteps = ttk.Label(tab1, text="Motor Steps Per Rotation")
+save = ttk.Label(tab1, text="Save All Parameters to Json File", font=bold)
+json = ttk.Label(tab1, text="Save to:")
+
 exp_entry = tk.Entry(tab1)
-initial_entry = tk.Entry(tab1)
-value_entry = tk.Entry(tab1)
-final_entry = tk.Entry(tab1)
-t1_entry = tk.Entry(tab1)
+initial_entry = tk.Entry(tab1, width=5)
+value_entry = tk.Entry(tab1, width=5)
+final_entry = tk.Entry(tab1, width=5)
+t1_entry = tk.Entry(tab1, width=5)
+t2_entry = tk.Entry(tab1, width=5)
+t3_entry = tk.Entry(tab1, width=5)
+rnumber_entry = tk.Entry(tab1, width=5)
+msteps_entry = tk.Entry(tab1, width=5)
+json_entry = tk.Entry(tab1, width=30)
 
 
 buttonBrowse = tk.Button(tab1, text="Browse")
@@ -67,23 +82,42 @@ value_tgc.grid(row=4, column=0, sticky='W')
 value_entry.grid(row=4, column=1, sticky='W')
 
 final_tgc.grid(row=5, column=0, sticky='W')
-final_entry.grid(row=5, column=1, sticky='W')
+final_entry.grid(row=5, column=1,sticky='W')
 
-acq.grid(row=6, column=0, pady=15, sticky='W')
+acq.grid(row=6, column=0,pady=15, sticky='W')
 samplef.grid(row=7, column=0, sticky='W')
 freqs.grid(row=7, column=1, sticky='W')
+f.grid(row=7, column=1, padx=145, sticky='W')
 
 pulse_peak.grid(row=8, column=0, sticky='W')
 voltages.grid(row=8, column=1, sticky='W')
+v.grid(row=8, column=1, padx=145, sticky='W')
 
 timing.grid(row=9, column=0, pady=15, sticky='W')
 
 t1.grid(row=10, column=0, padx=15, sticky='W')
-t1_entry.grid(row=10, column=1, sticky='W')
+t1_entry.grid(row=10,column=0,padx=40, sticky='W')
+
+t2.grid(row=10,column=0,padx=90, sticky='W')
+t2_entry.grid(row=10,column=0,padx=115, sticky='W')
+
+#t3.grid(row=10,column=0,padx=165, sticky='W')
+#t3_entry.grid(row=10,column=0,padx=190, sticky='W')
+
+routine.grid(row=11, column=0, pady=10, sticky='W')
+rnumber.grid(row=12, column=0, sticky='W')
+rnumber_entry.grid(row=12, column=1, sticky='W')
+
+msteps.grid(row=13, column=0,sticky='W')
+msteps_entry.grid(row=13, column=1, sticky='W')
+
+save.grid(row=14, column=0, pady=15, sticky='W')
+json.grid(row=15, column=0, sticky='W')
+json_entry.grid(row=15, column=0, padx=50, sticky='W')
 
 
 #buttonBack.grid(row=6, column=0, padx=15, pady=15)
-#buttonBrowse.grid(row=5, column=2, padx=15, pady=15)
+buttonBrowse.grid(row=15, column=1, sticky='W')
 
 
 # === WIDGETS FOR TAB TWO
@@ -117,3 +151,4 @@ buttonAddImage.grid(row=4, column=2, padx=15, pady=15)
 tab_parent.pack(expand=1, fill='both')
 
 form.mainloop()
+
