@@ -63,7 +63,7 @@ class us_spi:
     JSON["firmware_md5"] = "fa6a7560ade6d6b1149b6e78e0de051f"
     JSON["firmware_version"] = "e_un0"
     JSON["data"] = []
-    JSON["time"] = "NOW" #// todo, pass to py3 unicode(datetime.datetime.now())
+    JSON["time"] = str(datetime.datetime.now().strftime("%H:%M:%S")) #// todo, pass to py3 unicode(datetime.datetime.now())
     JSON["registers"] = {}
     JSON["experiment"] = {}
     JSON["parameters"] = {}
