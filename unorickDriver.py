@@ -262,7 +262,7 @@ class us_spi:
         Doing an acquisition, trigs, then reads the data.
         """
         self.write_fpga(0xEF, 0x01) # Cleaning memory pointer
-        self.JSON["time"] =str(datetime.datetime.now().strftime(%H:%M:%S))  #/@todo fix py3 unicode(datetime.datetime.now())
+        self.JSON["time"] =str(datetime.datetime.now().strftime("%H:%M:%S"))  #/@todo fix py3 unicode(datetime.datetime.now())
         self.write_fpga(0xEA, 0x01) # Software Trig : As to be clear by software
         self.JSON["data"] = []
         time.sleep(1) 
