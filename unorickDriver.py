@@ -986,8 +986,8 @@ if __name__ == "__main__":
                     y.create_fft() 
                     y.save_npz() 
                     y.mkImg()
-                    #if y.Nacq > 1:
-                    #    y.mk2DArray()
+                    if y.Nacq > 1:
+                        y.mk2DArray()
 
         if "loop" in sys.argv[1]:
             UN0RICK = us_spi()
