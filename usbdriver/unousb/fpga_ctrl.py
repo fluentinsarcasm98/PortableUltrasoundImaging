@@ -136,7 +136,7 @@ class FpgaControl(object):
                             author = self.csr.author,
                             version = self.csr.version,
                             doublerate = self.csr.drmode,
-                            libversion = str(__version__),
+                            #libversion = str(__version__),
                             timestamp = str(now),
                             nameFile = str(nameFile) )
 
