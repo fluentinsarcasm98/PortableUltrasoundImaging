@@ -158,7 +158,7 @@ plot_line("Acq 1 with zoom", acq_res[1], gain, [39.0, 41.0], True)
 print("Done\nNext step: doing 32 lines\n\n")
 gain = gain_staircase(4, 800)
 acq_res = fpga.do_acquisition(acq_lines=32, gain=gain, double_rate=False)
-
+file = fpga.stdNDTacq() # Running a standard NDT acquisition
 acq_res_hashes = [hash(tuple(a)) for a in acq_res]
 print("All lines are unique:", len(acq_res_hashes) == len(set(acq_res_hashes)))
 
