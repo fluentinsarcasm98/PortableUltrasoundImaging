@@ -6,9 +6,9 @@ import numpy as np
 import datetime
 
 from time import sleep
-from un0usb.csr_map import CsrMap
-from un0usb.ftdi_dev import FtdiDevice
-from .version import __version__
+from csr_map import CsrMap
+from ftdi_dev import FtdiDevice
+#from .version import __version__
 
 class FpgaControl(object):
     """Collection of FPGA control functions via FTDI API"""
