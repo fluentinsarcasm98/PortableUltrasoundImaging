@@ -125,7 +125,7 @@ class FpgaControl(object):
 
         now = datetime.datetime.today().strftime('%Y%m%d%H%M%S')
         if nameFile:
-            nameFile ="run/"+ now
+            nameFile = now
 
         np.savez_compressed(nameFile, signal=allAcqs, t=t, nblines=int(self.csr.nblines+1), 
                             gain=self.csr.dacgain, t_on = self.csr.ponw, 
