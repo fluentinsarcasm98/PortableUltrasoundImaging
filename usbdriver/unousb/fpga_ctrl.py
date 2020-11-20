@@ -79,7 +79,7 @@ class FpgaControl(object):
     def stdNDTacq(self):
         """Do standard acquisition - 32lines, interleaved, standard gain.
         """
-        self.do_acquisition(acq_lines=32, gain=None, double_rate=True)
+        self.do_acquisition(acq_lines=128, gain=None, double_rate=True)
         now = datetime.datetime.today().strftime('%Y%m%d%H%M%S')
         return self.save(nameFile = now+"_ndt")
 
@@ -94,7 +94,7 @@ class FpgaControl(object):
         if gain:
             self.csr.dacgain = gain
         else:
-            gain = [int(100 + ((1000-100)*x*x*x/32/32/32)) for x in range(32)]
+            gain = [(0*x) for x in range(32)]
             self.csr.dacgain = gain
         self.csr.nblines = acq_lines - 1
         self.csr.drmode = int(double_rate)
@@ -125,7 +125,7 @@ class FpgaControl(object):
 
         now = datetime.datetime.today().strftime('%Y%m%d%H%M%S')
         if nameFile:
-            nameFile = now
+            nameFile ="run/"+ now
 
         np.savez_compressed(nameFile, signal=allAcqs, t=t, nblines=int(self.csr.nblines+1), 
                             gain=self.csr.dacgain, t_on = self.csr.ponw, 
