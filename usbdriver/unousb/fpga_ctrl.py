@@ -98,7 +98,7 @@ class FpgaControl(object):
             self.csr.dacgain = gain
         self.csr.nblines = acq_lines - 1
         self.csr.drmode = int(double_rate)
-        self.set_pulseform(5,2500,2500, 7500)
+        self.set_pulseform(5,16,16, 5000)
         self.csr.acqstart = 1
         while (not self.csr.acqdone):
             sleep(0.01)
