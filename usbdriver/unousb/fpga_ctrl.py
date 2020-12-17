@@ -79,7 +79,7 @@ class FpgaControl(object):
     def stdNDTacq(self):
         """Do standard acquisition - 32lines, interleaved, standard gain.
         """
-        self.do_acquisition(acq_lines=128, gain=None, double_rate=True)
+        self.do_acquisition(acq_lines=32, gain=None, double_rate=True)
         now = datetime.datetime.today().strftime('%Y%m%d%H%M%S')
         return self.save(nameFile = now+"_ndt")
 
