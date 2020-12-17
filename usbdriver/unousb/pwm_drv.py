@@ -25,8 +25,8 @@ RESOLUTION = {'Full': (0, 0),
               '1/16': (1, 1),
               '1/32': (1, 1)} #Floating, High
 
-for i in range(3):
-    pi.write(MODE[i], RESOLUTION['1/16'][i])
+for i in range(2):
+    pi.write(MODE[i], RESOLUTION['1/32'][i])
 
 # Set duty cycle and frequency
 pi.set_PWM_dutycycle(STEP, 128)  # PWM 1/2 On 1/2 Off
