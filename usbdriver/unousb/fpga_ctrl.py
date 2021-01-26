@@ -94,7 +94,7 @@ class FpgaControl(object):
         if gain:
             self.csr.dacgain = gain
         else:
-            gain = [(int(100 + ((1000-100)*x*x*x/32/32/32))) for x in range(32)]
+            gain = [(0*x) for x in range(32)]
             self.csr.dacgain = gain
         self.csr.nblines = acq_lines - 1
         self.csr.drmode = int(double_rate)
